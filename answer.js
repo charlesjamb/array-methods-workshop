@@ -3,11 +3,23 @@
 
 var positiveAndNegativeNumbers = [2, -4, 3, -5, 100, -Infinity];
 
-function printPositives(number, idx) {
-    return number[idx] > 0;
+function printPositives(array) {
+    var n = [];
+    array.forEach(function(number, idx) {
+        if (number > 0) {
+            n.push(number);
+        }
+    })
+    return n;
 };
 
-var onlyPositiveEach = positiveAndNegativeNumbers.forEach(printPositives);
+/*function x (arr){
+    var n = []
+    arr.for
+    return n
+}*/
+
+var onlyPositiveEach = printPositives(positiveAndNegativeNumbers);
 console.log(onlyPositiveEach);
 
 // Similar to the previous exercise, write a function called getPositives that takes an array 
