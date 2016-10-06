@@ -29,7 +29,12 @@ var onlyPositiveFilter = positiveAndNegativeNumbers.filter(getPositives);
 // Re-do exercise 1 by first filtering the input array, and then printing the numbers from the filtered array.
 // Your code will look something like: return arr.filter(...).forEach(...).
 
-
+function x(arr) {
+	arr.filter(getPositives).forEach(function(ele) {
+		console.log(ele)
+	})
+}
+x(positiveAndNegativeNumbers)
 
 /* Write a function called filterArray that takes a callback function and an array as arguments. 
 Your filterArray function should return a new array that contains only the elements where the callback 
@@ -44,4 +49,6 @@ function filterArray(number) {
 
 var answerTrickQuestion = trickQuestion.filter(filterArray);
 console.log(answerTrickQuestion);
+
+
 
