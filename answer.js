@@ -24,7 +24,7 @@ function getPositives(number) {
 }
 
 var onlyPositiveFilter = positiveAndNegativeNumbers.filter(getPositives);
-// console.log(onlyPositiveFilter);
+//console.log(onlyPositiveFilter);
 
 // Re-do exercise 1 by first filtering the input array, and then printing the numbers from the filtered array.
 // Your code will look something like: return arr.filter(...).forEach(...).
@@ -65,3 +65,24 @@ function longuestWord(str) {
 
 //longuestWord('This is a sentence to be split');
 
+/* Write a function called countVowels that takes a string and returns the number of vowels in the string. 
+You should use Array.prototype.reduce to do your work.
+For the string "The quick brown fox", the output should be 5 because there is one e, one u, one i and two os.
+Hint: You can use String.prototype.split again. 
+	There is a way to use it to split a string by character. Try to Google it :)
+Hint 2: You can create an array of vowels and use Array.prototype.indexOf to check if the current letter is a vowel.*/
+
+var vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+
+function countVowels(str) {
+	var splitByLetters = str.split('');
+	return splitByLetters.reduce(function(counter, ele){
+		if(vowels.indexOf(ele) > -1) {
+			counter += 1;
+		}
+
+		return counter;
+	}, 0);
+}
+
+//console.log(countVowels('This is a string'));
