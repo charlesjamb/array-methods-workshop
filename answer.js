@@ -34,7 +34,7 @@ function x(arr) {
 		console.log(ele)
 	})
 }
-x(positiveAndNegativeNumbers)
+//x(positiveAndNegativeNumbers)
 
 /* Write a function called filterArray that takes a callback function and an array as arguments. 
 Your filterArray function should return a new array that contains only the elements where the callback 
@@ -48,7 +48,20 @@ function filterArray(number) {
 }
 
 var answerTrickQuestion = trickQuestion.filter(filterArray);
-console.log(answerTrickQuestion);
+//console.log(answerTrickQuestion);
 
+/*Write a function called longestWord that takes a string as argument, and returns the longest word in the string. 
+You should use Array.prototype.reduce to do your work.
+Hint: You can use String.prototype.split to split the string into an array of words.*/
 
+function longuestWord(str) {
+	var stringSplitted = str.split(' ');
+	console.log(stringSplitted);
+	var word = stringSplitted.reduce(function(previousValue, currentValue) {
+		return previousValue.length > currentValue.length ? previousValue : currentValue;
+	}, 0);
+	console.log(word);
+}
+
+//longuestWord('This is a sentence to be split');
 
