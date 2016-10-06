@@ -94,7 +94,7 @@ For example, starting with [1, -10, 20, 40, 5], your function should return {hig
 Hint: Javascript has a special value called Infinity, which is higher than any other number. 
 See if you can initialize your reduce accumulator with Infinity and -Infinity :)*/
 
-var arrayOfNumber = [45, 5, 10, -200, 1500];
+var arrayOfNumber = [Infinity, 4, -Infinity, 2, 1];
 
 function highLow(array) {
 	
@@ -114,3 +114,35 @@ function highLow(array) {
 }
 
 // console.log(highLow(arrayOfNumber));
+
+/*Expanding on exercise 6, write a function called highLowTwo that takes an array of numbers, and returns the higest,
+ second highest, lowest, and second lowest numbers.*/
+
+function highLowTwo(array) {
+	
+	var resultObject2 = array.reduce(function(obj, num) {
+		if (num > obj.secondHighest) {
+			obj.secondHighest = num;
+			if (num > obj.highest) {
+				obj.secondHighest = obj.highest;
+				obj.highest = num;
+			}
+		}
+
+		if (num < obj.secondLowest) {
+			obj.secondLowest = num;
+			if (num < obj.lowest) {
+				obj.secondLowest = obj.lowest;
+				obj.lowest = num;
+			}
+		}
+
+		return obj;
+		//console.log(obj);
+
+	}, {highest: -Infinity, secondHighest: -Infinity, lowest: Infinity, secondLowest: Infinity})
+
+	return resultObject2;
+}
+
+console.log(highLowTwo(arrayOfNumber));
