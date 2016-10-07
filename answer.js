@@ -147,19 +147,15 @@ function highLowTwo(array) {
 
 //console.log(highLowTwo(arrayOfNumber));
 
-/*Write a function called countChars that takes a string, and returns an object where the keys are letters, 
+/*Write a function called countChars that takes a string, and returns an object 
+where the keys are letters, 
 and the value is the number of times that letter appears.*/
 
-var hello = 'Hello, world!';
-
-
-// function that split
 function splitByLetters(str) {
 	var onlyLetters = str.replace(/\W/g, '').toLowerCase();
 	return onlyLetters.split('');
 }
 
-//function filter (split)
 function splitFilter(arr) {
 	return arr.reduce(function(obj, letter) {
 		if(obj[letter]) {
@@ -171,6 +167,67 @@ function splitFilter(arr) {
 	}, {})
 }
 
-console.log(splitFilter(splitByLetters(hello)));
+//console.log(splitFilter(splitByLetters('Hello, world!')));
 
+/*
+For this exercise, we want to use `Array.prototype.reduce` to transform 
+our array of people into an object, keyed with the unique ID.
 
+The end result should look like this:
+
+```json
+{
+  "KeXoYg92is": {
+    "id": "KeXoYg92is",
+    "firstName": "John",
+    "lastName": "Smith",
+    "email": "john@smith.com"
+  },
+  "NkALmSWtUp": {
+    "id": "NkALmSWtUp",
+    "firstName": "Donald",
+    "lastName": "Duck",
+    "email": "don@disney.com"
+  },
+  "m7LPbJYSUg": {
+    "id": "m7LPbJYSUg",
+    "firstName": "John",
+    "lastName": "Vader",
+    "email": "vader@darkside.com"
+  }
+}
+*/
+
+var people = [
+  {
+    id: "KeXoYg92is",
+    firstName: "John",
+    lastName: "Smith",
+    email: "john@smith.com"
+  },
+  {
+    id: "NkALmSWtUp",
+    firstName: "Donald",
+    lastName: "Duck",
+    email: "don@disney.com"
+  },
+  {
+    id: "m7LPbJYSUg",
+    firstName: "John",
+    lastName: "Vader",
+    email: "vader@darkside.com"
+  }
+]
+
+function uniqueID(arr) {
+
+	var buildingTheObj = arr.reduce(function(obj, person) {
+		if (!obj[person.id]) {
+			person = obj[person.id];
+		}
+		return obj;	
+	}, {});
+	return buildingTheObj;
+};
+
+console.log(uniqueID(people));
