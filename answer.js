@@ -106,7 +106,6 @@ function highLow(array) {
 			obj.lowest = num
 		}
 		return obj;
-		console.log(obj);
 
 	}, {highest: -Infinity, lowest: Infinity})
 
@@ -151,20 +150,27 @@ function highLowTwo(array) {
 /*Write a function called countChars that takes a string, and returns an object where the keys are letters, 
 and the value is the number of times that letter appears.*/
 
-function countChar(str) {
+var hello = 'Hello, world!';
 
-	var stringSplitted = str.split('');
-	//console.log(stringSplitted);
 
-	return stringSplitted.reduce(function(obj, num) {
-		indexOf
-	}, 
-	{
-		if (num = '') {
-			num = obj.num;
-		}
-	 })
+// function that split
+function splitByLetters(str) {
+	var onlyLetters = str.replace(/\W/g, '').toLowerCase();
+	return onlyLetters.split('');
 }
 
-//countChar('Hello World');
-console.log(highLowTwo(arrayOfNumber));
+//function filter (split)
+function splitFilter(arr) {
+	return arr.reduce(function(obj, letter) {
+		if(obj[letter]) {
+			obj[letter] += 1
+		} else {
+			obj[letter] = 1
+		}
+		return obj;
+	}, {})
+}
+
+console.log(splitFilter(splitByLetters(hello)));
+
+
