@@ -113,7 +113,8 @@ function highLow(array) {
 	return resultObject;
 }
 
- //console.log(highLow(arrayOfNumber));
+
+// console.log(highLow(arrayOfNumber));
 
 /*Expanding on exercise 6, write a function called highLowTwo that takes an array of numbers, and returns the higest,
  second highest, lowest, and second lowest numbers.*/
@@ -166,3 +167,4 @@ function countChar(str) {
 }
 
 //countChar('Hello World');
+console.log(highLowTwo(arrayOfNumber));
