@@ -24,7 +24,7 @@ function getPositives(number) {
 }
 
 var onlyPositiveFilter = positiveAndNegativeNumbers.filter(getPositives);
-// console.log(onlyPositiveFilter);
+//console.log(onlyPositiveFilter);
 
 // Re-do exercise 1 by first filtering the input array, and then printing the numbers from the filtered array.
 // Your code will look something like: return arr.filter(...).forEach(...).
@@ -56,11 +56,113 @@ Hint: You can use String.prototype.split to split the string into an array of wo
 
 function longuestWord(str) {
 	var stringSplitted = str.split(' ');
-	//console.log(stringSplitted);
-	stringSplitted.reduce(function(previousValue, currentValue) {
-		return previousValue.length < currentValue.length ? previousValue : currentValue;
+	console.log(stringSplitted);
+	var word = stringSplitted.reduce(function(previousValue, currentValue) {
+		return previousValue.length > currentValue.length ? previousValue : currentValue;
 	}, 0);
-	console.log(stringSplitted.reduce);
+	console.log(word);
 }
 
-longuestWord('This is a sentence to be split');
+//longuestWord('This is a sentence to be split');
+
+/* Write a function called countVowels that takes a string and returns the number of vowels in the string. 
+You should use Array.prototype.reduce to do your work.
+For the string "The quick brown fox", the output should be 5 because there is one e, one u, one i and two os.
+Hint: You can use String.prototype.split again. 
+	There is a way to use it to split a string by character. Try to Google it :)
+Hint 2: You can create an array of vowels and use Array.prototype.indexOf to check if the current letter is a vowel.*/
+
+var vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+
+function countVowels(str) {
+	var splitByLetters = str.split('');
+	return splitByLetters.reduce(function(counter, ele){
+		if(vowels.indexOf(ele) > -1) {
+			counter += 1;
+		}
+
+		return counter;
+	}, 0);
+}
+
+//console.log(countVowels('This is a string'));
+
+/*Write a function called highLow that takes an array of numbers,
+ and returns an object with a property highest containing the highest number,
+  and a property lowest containing the lowest number, using Array.prototype.reduce.
+For example, starting with [1, -10, 20, 40, 5], your function should return {highest: 40, lowest: -10}.
+Hint: Javascript has a special value called Infinity, which is higher than any other number. 
+See if you can initialize your reduce accumulator with Infinity and -Infinity :)*/
+
+var arrayOfNumber = [Infinity, 4, -Infinity, 2, 1];
+
+function highLow(array) {
+	
+	var resultObject = array.reduce(function(obj, num) {
+		if (num > obj.highest) {
+			obj.highest = num;
+		}
+		else if (num < obj.lowest) {
+			obj.lowest = num
+		}
+		return obj;
+		console.log(obj);
+
+	}, {highest: -Infinity, lowest: Infinity})
+
+	return resultObject;
+}
+
+ //console.log(highLow(arrayOfNumber));
+
+/*Expanding on exercise 6, write a function called highLowTwo that takes an array of numbers, and returns the higest,
+ second highest, lowest, and second lowest numbers.*/
+
+function highLowTwo(array) {
+	
+	var resultObject2 = array.reduce(function(obj, num) {
+		if (num > obj.secondHighest) {
+			obj.secondHighest = num;
+			if (num > obj.highest) {
+				obj.secondHighest = obj.highest;
+				obj.highest = num;
+			}
+		}
+
+		if (num < obj.secondLowest) {
+			obj.secondLowest = num;
+			if (num < obj.lowest) {
+				obj.secondLowest = obj.lowest;
+				obj.lowest = num;
+			}
+		}
+
+		return obj;
+		//console.log(obj);
+
+	}, {highest: -Infinity, secondHighest: -Infinity, lowest: Infinity, secondLowest: Infinity})
+
+	return resultObject2;
+}
+
+//console.log(highLowTwo(arrayOfNumber));
+
+/*Write a function called countChars that takes a string, and returns an object where the keys are letters, 
+and the value is the number of times that letter appears.*/
+
+function countChar(str) {
+
+	var stringSplitted = str.split('');
+	//console.log(stringSplitted);
+
+	return stringSplitted.reduce(function(obj, num) {
+		indexOf
+	}, 
+	{
+		if (num = '') {
+			num = obj.num;
+		}
+	 })
+}
+
+//countChar('Hello World');
