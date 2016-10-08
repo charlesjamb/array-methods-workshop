@@ -223,11 +223,38 @@ function uniqueID(arr) {
 
 	var buildingTheObj = arr.reduce(function(obj, person) {
 		if (!obj[person.id]) {
-			person = obj[person.id];
+			obj[person.id] = person;
 		}
 		return obj;	
 	}, {});
 	return buildingTheObj;
 };
 
-console.log(uniqueID(people));
+//console.log(uniqueID(people));
+
+/*
+## Exercise 10
+Expanding on the previous exercise, this time we are going to create an index on **first names**.
+Notice how in the previous exercise, each ID was unique. 
+In this case, two people have the same first name.
+
+We want to create a function called `peopleByFirstName` 
+that will take an array of people and return something that looks like this:
+*/
+
+function peopleByFirstName(arr) {
+
+	var construction = arr.reduce(function(obj, person) {
+		if (!obj[person.firstName]) {
+			obj[person.firstName] = [person];
+		}
+		else if (obj[person.firstName]) {
+			//console.log([person]);
+			obj[person.firstName].push(person);
+		 }
+		return obj;
+	}, {});
+	return construction;
+};
+
+console.log(peopleByFirstName(people));
